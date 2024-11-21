@@ -1,0 +1,45 @@
+.form {
+  max-width: 222px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  border: 1px solid dodgerblue;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.name,
+.number {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.field {
+  outline: none;
+  height: 18px;
+  padding: 2px 5px;
+  border: 1px solid darkblue;
+  border-radius: 3px;
+}
+
+.field:focus {
+  border-color: dodgerblue;
+}
+
+.btn {
+  padding: 8px;
+  align-self: center;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: lightskyblue;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
+}
