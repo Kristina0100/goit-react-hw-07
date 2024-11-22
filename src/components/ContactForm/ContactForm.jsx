@@ -3,32 +3,27 @@ import styles from "./ContactForm.module.css"
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { AddContactSchema } from "../../utils/schemas";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 
-import { nanoid } from 'nanoid';
-
-const ContactForm = () => {
+const ContactForm = ({onSearch}) => {
 
   const INITIAL_VALUES = {
     name: '',
     number: ''
   }
 
+  // const SearchProductForm = ({ onSearch }) => {
+  // const handleSubmit = (values, actions) => {
+  //   // values => { searchTerm: "search text" }
+  //   onSearch(values.searchTerm);
+  //   actions.resetForm();
+  // };
+
   const dispatch = useDispatch();
 
-  const onAddContact = (formData) => {
-    const finalContact = {
-      ...formData,
-      id: nanoid(),
-    };
-
-    const action = addContact(finalContact);
-    dispatch(action);
-  };
-
-  
-  const handleSubmit = (values, actions) => {
-    onAddContact(values);
+    const handleSubmit = (values, actions) => {
+    onSearch(values.name);
+    dispatch(addContact(values));
     actions.resetForm();
   };
 
