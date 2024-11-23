@@ -1,6 +1,4 @@
 import { useSelector } from "react-redux";
-// import { selectContacts } from "../../redux/contactsSlice";
-// import { selectNameFilter } from "../../redux/filtersSlice";
 import { selectFilteredContacts } from '../../redux/contactsSlice';
 
 import Contact from "../Contact/Contact";
@@ -10,9 +8,6 @@ const ContactList = () => {
 
     const filteredContacts = useSelector(selectFilteredContacts);
 
-//   if (!filteredContacts.length) {
-//     return <p>No contacts found.</p>;
-//   }
     return (
         <ul className={styles.contacts}>
             {filteredContacts.map(contact => {
@@ -21,8 +16,8 @@ const ContactList = () => {
                         contact={contact} />
                 </li>)
             })}
-      </ul>
-  )
-}
+        </ul>
+    )
+};
 
 export default ContactList;
